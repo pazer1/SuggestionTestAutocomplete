@@ -1,4 +1,4 @@
-package com.dipdoo.suggestiontestautocomplete;
+package com.dipdoo.suggestiontestautocomplete.PlaceAutocomplete;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

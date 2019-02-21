@@ -1,4 +1,4 @@
-package com.dipdoo.suggestiontestautocomplete;
+package com.dipdoo.suggestiontestautocomplete.PlaceAutocomplete;
 
 import android.content.Context;
 
@@ -48,7 +48,7 @@ public class ApiCall {
             e.printStackTrace();
         }
 
-        String url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+query+"&types=geocode&language=korea&key=AIzaSyA0z-RXXqdl3Vzt4Kq3c8WTr9WsHy3aJ2k";
+        String url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+query+"&key=AIzaSyA0z-RXXqdl3Vzt4Kq3c8WTr9WsHy3aJ2k";
         StringRequest stringRequest = new StringRequest(Request.Method.GET,url,listener,errorListener);
         ApiCall.getInstance(ctx).addToRequestQueue(stringRequest);
     }
