@@ -36,21 +36,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final AppCompatAutoCompleteTextView autoCompleteTextView =
                 findViewById(R.id.auto_complete_edit_text);
-        final TextView selectedText = findViewById(R.id.selected_item);
-
-        //Setting up the adapter for AutoSuggest
         autoSuggestAdapter = new AutoSuggestAdapter(this,
                 android.R.layout.simple_dropdown_item_1line);
         autoCompleteTextView.setThreshold(2);
         autoCompleteTextView.setAdapter(autoSuggestAdapter);
-        autoCompleteTextView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view,
-                                            int position, long id) {
-                        selectedText.setText(autoSuggestAdapter.getObject(position));
-                    }
-                });
+
 
         autoCompleteTextView.addTextChangedListener(new TextWatcher() {
             @Override
@@ -93,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                 //parsing logic, please change it as per your requirement
                 List<String> stringList = new ArrayList<>();
                 try {
-                    Log.i("Tag",response);
                     JSONObject responseObject = new JSONObject(response);
                     JSONArray array = responseObject.getJSONArray("predictions");
                     for (int i = 0; i < array.length(); i++) {
